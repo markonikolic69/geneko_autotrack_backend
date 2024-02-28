@@ -1,0 +1,22 @@
+[09:31:24][INFO][main][main] - Program started
+[09:31:24][DEBUG][main][<init>] - -->Service() - starting service on localhost
+[09:31:24][DEBUG][main][initialize] - -->initialize() - initializing resources for Service: properties, socket, timer, and seting number of threads
+[09:31:24][DEBUG][main][initializeProperties] - -->initializeProperties() - initializing app. properties from the property file
+[09:31:24][DEBUG][main][initializeProperties] - <--initializeProperties()
+[09:31:24][DEBUG][main][initializeSocket] - -->initializeSocket() - initializing socket for the port 40002, 127.0.0.1
+[09:31:24][DEBUG][main][initializeSocket] - <--initializeSocket()
+[09:31:24][DEBUG][main][initialize] - <--initialize()
+[09:31:24][DEBUG][main][<init>] - <--Service()
+[09:31:24][DEBUG][Thread-1][run] - -->
+[09:31:24][DEBUG][Thread-1][listen] - -->listen() - accepting terminal requests
+[09:32:40][INFO][main][main] - Program started
+[09:32:40][DEBUG][main][<init>] - -->Service() - starting service on localhost
+[09:32:40][DEBUG][main][initialize] - -->initialize() - initializing resources for Service: properties, socket, timer, and seting number of threads
+[09:32:40][DEBUG][main][initializeProperties] - -->initializeProperties() - initializing app. properties from the property file
+[09:32:40][DEBUG][main][initializeProperties] - <--initializeProperties()
+[09:32:40][DEBUG][main][initializeSocket] - -->initializeSocket() - initializing socket for the port 40002, 127.0.0.1
+[09:32:40][DEBUG][main][initializeSocket] - <--initializeSocket()
+[09:32:40][DEBUG][main][initialize] - <--initialize()
+[09:32:40][DEBUG][main][<init>] - <--Service()
+[09:32:40][DEBUG][Thread-1][run] - -->
+[09:32:40][DEBUG][Thread-1][listen] - -->listen() - accepting terminal requests

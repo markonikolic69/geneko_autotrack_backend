@@ -1,0 +1,201 @@
+[17:29:49][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=61487,localport=40002]
+[17:29:49][INFO][Thread-1][processRequest] - Pool size is 0
+[17:29:49][DEBUG][Thread-1][processRequest] - <--
+[17:29:49][INFO][Thread-2][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=61487,localport=40002]
+[17:29:49][INFO][Thread-2][run] - ------------------------------------request start--------------------------------------------------
+[17:29:49][INFO][Thread-2][run] - request from address: 127.0.0.1 port: 61487
+[17:29:49][DEBUG][Thread-2][run] - U beskonacnoj sam petlji, reading from socket: 
+[17:29:49][DEBUG][Thread-2][run] - recived start byte 1 hex: 5C
+[17:29:49][DEBUG][Thread-2][run] - recived start byte 2 hex: 72
+[17:29:49][DEBUG][Thread-2][run] - recived duzina poruke hex: 37
+[17:29:49][DEBUG][Thread-2][run] - duzina_poruke_int = 55
+[17:29:49][INFO][Thread-2][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[17:29:49][DEBUG][Thread-2][newDefaultFactory] - Using Log4J as the default logging framework
+[17:29:49][DEBUG][Thread-2][<clinit>] - java.nio.Buffer.address: available
+[17:29:49][DEBUG][Thread-2][<clinit>] - sun.misc.Unsafe.theUnsafe: available
+[17:29:49][DEBUG][Thread-2][<clinit>] - sun.misc.Unsafe.copyMemory: available
+[17:29:49][DEBUG][Thread-2][<clinit>] - java.nio.Bits.unaligned: true
+[17:29:49][DEBUG][Thread-2][isWindows0] - Platform: Windows
+[17:29:49][DEBUG][Thread-2][javaVersion0] - Java version: 6
+[17:29:49][DEBUG][Thread-2][hasUnsafe0] - -Dio.netty.noUnsafe: false
+[17:29:49][DEBUG][Thread-2][hasUnsafe0] - sun.misc.Unsafe: available
+[17:29:49][DEBUG][Thread-2][hasJavassist0] - -Dio.netty.noJavassist: false
+[17:29:49][DEBUG][Thread-2][hasJavassist0] - Javassist: unavailable
+[17:29:49][DEBUG][Thread-2][hasJavassist0] - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+[17:29:49][DEBUG][Thread-2][tmpdir0] - -Dio.netty.tmpdir: C:\Users\38164\AppData\Local\Temp (java.io.tmpdir)
+[17:29:49][DEBUG][Thread-2][bitMode0] - -Dio.netty.bitMode: 32 (sun.arch.data.model)
+[17:29:49][DEBUG][Thread-2][<clinit>] - -Dio.netty.noPreferDirect: false
+[17:29:49][DEBUG][Thread-2][<clinit>] - -Dio.netty.leakDetectionLevel: simple
+[17:29:49][DEBUG][Thread-2][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[17:29:49][DEBUG][Thread-2][<init>] - --> geneco_status_id = 0
+[17:29:49][DEBUG][Thread-2][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[17:29:49][DEBUG][Thread-2][<init>] - --> _serialNumber = 11961
+[17:29:49][DEBUG][Thread-2][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[17:29:49][DEBUG][Thread-2][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[17:29:49][DEBUG][Thread-2][createLocalDateTime] - <--
+[17:29:49][DEBUG][Thread-2][<init>] - <--
+[17:29:49][INFO][Thread-2][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[17:29:49][DEBUG][Thread-2][<init>] - -->
+[17:29:49][DEBUG][Thread-2][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[17:29:51][ERROR][Thread-2][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:128)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[17:29:51][DEBUG][Thread-2][run] - U beskonacnoj sam petlji, reading from socket: 
+[17:31:48][INFO][Thread-2][run] - Connection closed by client
+[17:31:48][INFO][Thread-2][run] - <-- thread finished, all resources closed
+[17:33:03][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=61538,localport=40002]
+[17:33:03][INFO][Thread-1][processRequest] - Pool size is 0
+[17:33:03][DEBUG][Thread-1][processRequest] - <--
+[17:33:03][INFO][Thread-3][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=61538,localport=40002]
+[17:33:03][INFO][Thread-3][run] - ------------------------------------request start--------------------------------------------------
+[17:33:03][INFO][Thread-3][run] - request from address: 127.0.0.1 port: 61538
+[17:33:03][DEBUG][Thread-3][run] - U beskonacnoj sam petlji, reading from socket: 
+[17:33:03][DEBUG][Thread-3][run] - recived start byte 1 hex: 5C
+[17:33:03][DEBUG][Thread-3][run] - recived start byte 2 hex: 72
+[17:33:03][DEBUG][Thread-3][run] - recived duzina poruke hex: 37
+[17:33:03][DEBUG][Thread-3][run] - duzina_poruke_int = 55
+[17:33:03][INFO][Thread-3][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[17:33:03][DEBUG][Thread-3][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[17:33:03][DEBUG][Thread-3][<init>] - --> geneco_status_id = 0
+[17:33:03][DEBUG][Thread-3][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[17:33:03][DEBUG][Thread-3][<init>] - --> _serialNumber = 11961
+[17:33:03][DEBUG][Thread-3][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[17:33:03][DEBUG][Thread-3][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[17:33:03][DEBUG][Thread-3][createLocalDateTime] - <--
+[17:33:03][DEBUG][Thread-3][<init>] - <--
+[17:33:03][INFO][Thread-3][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[17:33:03][DEBUG][Thread-3][<init>] - -->
+[17:33:03][DEBUG][Thread-3][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[17:33:05][ERROR][Thread-3][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:128)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[17:33:05][DEBUG][Thread-3][run] - U beskonacnoj sam petlji, reading from socket: 
+[17:33:52][INFO][main][main] - Program started
+[17:33:52][DEBUG][main][<init>] - -->Service() - starting service on localhost
+[17:33:52][DEBUG][main][initialize] - -->initialize() - initializing resources for Service: properties, socket, timer, and seting number of threads
+[17:33:52][DEBUG][main][initializeProperties] - -->initializeProperties() - initializing app. properties from the property file
+[17:33:52][DEBUG][main][initializeProperties] - <--initializeProperties()
+[17:33:52][DEBUG][main][initializeSocket] - -->initializeSocket() - initializing socket for the port 40002, 127.0.0.1
+[17:33:52][DEBUG][main][initializeSocket] - <--initializeSocket()
+[17:33:52][DEBUG][main][initialize] - <--initialize()
+[17:33:52][DEBUG][main][<init>] - <--Service()
+[17:33:52][DEBUG][Thread-1][run] - -->
+[17:33:52][DEBUG][Thread-1][listen] - -->listen() - accepting terminal requests
+[17:35:03][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=61584,localport=40002]
+[17:35:03][INFO][Thread-1][processRequest] - Pool size is 0
+[17:35:03][DEBUG][Thread-1][processRequest] - <--
+[17:35:03][INFO][Thread-2][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=61584,localport=40002]
+[17:35:03][INFO][Thread-2][run] - ------------------------------------request start--------------------------------------------------
+[17:35:03][INFO][Thread-2][run] - request from address: 127.0.0.1 port: 61584
+[17:35:03][DEBUG][Thread-2][run] - U beskonacnoj sam petlji, reading from socket: 
+[17:35:03][DEBUG][Thread-2][run] - recived start byte 1 hex: 5C
+[17:35:03][DEBUG][Thread-2][run] - recived start byte 2 hex: 72
+[17:35:03][DEBUG][Thread-2][run] - recived duzina poruke hex: 37
+[17:35:03][DEBUG][Thread-2][run] - duzina_poruke_int = 55
+[17:35:03][INFO][Thread-2][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[17:35:03][DEBUG][Thread-2][newDefaultFactory] - Using Log4J as the default logging framework
+[17:35:03][DEBUG][Thread-2][<clinit>] - java.nio.Buffer.address: available
+[17:35:03][DEBUG][Thread-2][<clinit>] - sun.misc.Unsafe.theUnsafe: available
+[17:35:03][DEBUG][Thread-2][<clinit>] - sun.misc.Unsafe.copyMemory: available
+[17:35:03][DEBUG][Thread-2][<clinit>] - java.nio.Bits.unaligned: true
+[17:35:03][DEBUG][Thread-2][isWindows0] - Platform: Windows
+[17:35:03][DEBUG][Thread-2][javaVersion0] - Java version: 6
+[17:35:03][DEBUG][Thread-2][hasUnsafe0] - -Dio.netty.noUnsafe: false
+[17:35:03][DEBUG][Thread-2][hasUnsafe0] - sun.misc.Unsafe: available
+[17:35:03][DEBUG][Thread-2][hasJavassist0] - -Dio.netty.noJavassist: false
+[17:35:03][DEBUG][Thread-2][hasJavassist0] - Javassist: unavailable
+[17:35:03][DEBUG][Thread-2][hasJavassist0] - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+[17:35:03][DEBUG][Thread-2][tmpdir0] - -Dio.netty.tmpdir: C:\Users\38164\AppData\Local\Temp (java.io.tmpdir)
+[17:35:03][DEBUG][Thread-2][bitMode0] - -Dio.netty.bitMode: 32 (sun.arch.data.model)
+[17:35:03][DEBUG][Thread-2][<clinit>] - -Dio.netty.noPreferDirect: false
+[17:35:03][DEBUG][Thread-2][<clinit>] - -Dio.netty.leakDetectionLevel: simple
+[17:35:03][DEBUG][Thread-2][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[17:35:03][DEBUG][Thread-2][<init>] - --> geneco_status_id = 0
+[17:35:03][DEBUG][Thread-2][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[17:35:03][DEBUG][Thread-2][<init>] - --> _serialNumber = 11961
+[17:35:03][DEBUG][Thread-2][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[17:35:03][DEBUG][Thread-2][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[17:35:03][DEBUG][Thread-2][createLocalDateTime] - <--
+[17:35:03][DEBUG][Thread-2][<init>] - <--
+[17:35:03][INFO][Thread-2][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[17:35:03][DEBUG][Thread-2][<init>] - -->
+[17:35:03][DEBUG][Thread-2][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[17:35:05][ERROR][Thread-2][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:128)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[17:35:05][DEBUG][Thread-2][run] - U beskonacnoj sam petlji, reading from socket: 

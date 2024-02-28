@@ -1,0 +1,64 @@
+<project name="srbija pht pos service project" default="make_jar" basedir=".">
+  <description>The jar build for "srbija_pht_pos_service_jar" project</description>
+  <property name="lib" location="${basedir}\lib"/>
+  <property name="build" location="${basedir}\ant_build"/>
+  <property name="src" location="${basedir}\src"/>
+  <property name="pakistan_fiskalizacija" location="${build}\PakistanFiskalDataService.jar"/>
+  <property name="java_src" value="${basedir}\src"/>
+  <property name="java_src_includes" value="**/*_Stub.java/**"/>
+  <property name="java_src_excludes" value="**/unittest/**"/>
+	
+
+	<path id="classpath">
+
+				<fileset dir="${basedir}\..\3pp_lib\APACHE\LOGGING">
+					<include name="log4j-1.2.9.jar"/>
+				</fileset>
+				<fileset dir="${basedir}\..\3pp_lib\APACHE\COMMONS">
+							<include name="commons-codec-1.11.jar"/>
+						</fileset>
+				<fileset dir="${basedir}\..\srbija_centcert3_mobilkom_driver\ant_build">
+					<include name="CentCert3MobilkomDriver.jar"/>
+				</fileset>
+				<fileset dir="${basedir}\..\3pp_lib\CONCURRENT">
+					<include name="concurrent.jar"/>
+				</fileset>
+				<fileset dir="${basedir}\..\3pp_lib\MAIL">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${basedir}\..\3pp_lib\APACHE\XML-RPC">
+					<include name="xmlrpc-2.0.jar"/>
+				</fileset>
+				<fileset dir="${basedir}\..\srbija_mundio_driver\ant_build">
+					<include name="MundioDriver.jar"/>
+				</fileset>
+	</path>
+	
+	  <target name="clean">
+    <!-- clean the resources for jar file -->
+    <!-- delete the build directory structure used by compile -->
+    <delete dir="${build}"/>
+    <!-- delete the Pos service jar -->
+  </target>
+
+  <target name="init" depends="clean">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+
+  <target name="compile" depends="init" description="compile the source ">
+    <!-- Compile the java code from ${src} into ${build} -->
+  	<echo message="${lib}"/>
+    <javac srcdir="${src}" destdir="${build}"  source="1.5">
+  	<classpath refid="classpath"/>
+    	</javac>
+  </target>
+
+  <target name="make_jar" depends="compile" description="make pakistan fiskal data receipt service jar file">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <jar basedir="${build}" jarfile="${pakistan_fiskalizacija}"/>
+  </target>
+</project>

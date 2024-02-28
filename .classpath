@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/COMMONS/commons-codec-1.11.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/axis.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/axis-ant.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/saaj.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/AXIS/1.4/xml-apis.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/CONCURRENT/concurrent.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/MAIL/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/MAIL/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/APACHE/XML-RPC/xmlrpc-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/3pp_lib/POSTGRES_JDBC/postgresql-8.1dev-401.jdbc3.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/srbija_centcert3_mobilkom_driver/ant_build/CentCert3MobilkomDriver.jar"/>
+	<classpathentry kind="lib" path="C:/Documents/workspace_processing/srbija_mundio_driver/ant_build/MundioDriver.jar"/>
+	<classpathentry kind="lib" path="C:/Users/38164/.m2/repository/io/netty/netty-all/5.0.0.Alpha2/netty-all-5.0.0.Alpha2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/38164/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

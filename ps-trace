@@ -1,0 +1,192 @@
+[20:02:34][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=58586,localport=40002]
+[20:02:34][INFO][Thread-1][processRequest] - Pool size is 0
+[20:02:34][DEBUG][Thread-1][processRequest] - <--
+[20:02:34][INFO][Thread-3][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=58586,localport=40002]
+[20:02:34][INFO][Thread-3][run] - ------------------------------------request start--------------------------------------------------
+[20:02:34][INFO][Thread-3][run] - request from address: 127.0.0.1 port: 58586
+[20:02:34][DEBUG][Thread-3][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:02:34][DEBUG][Thread-3][run] - recived start byte 1 hex: 5C
+[20:02:34][DEBUG][Thread-3][run] - recived start byte 2 hex: 72
+[20:02:34][DEBUG][Thread-3][run] - recived duzina poruke hex: 37
+[20:02:34][DEBUG][Thread-3][run] - duzina_poruke_int = 55
+[20:02:34][INFO][Thread-3][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[20:02:34][DEBUG][Thread-3][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[20:02:34][DEBUG][Thread-3][<init>] - --> geneco_status_id = 0
+[20:02:34][DEBUG][Thread-3][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[20:02:34][DEBUG][Thread-3][<init>] - --> _serialNumber = 11961
+[20:02:34][DEBUG][Thread-3][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[20:02:34][DEBUG][Thread-3][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[20:02:34][DEBUG][Thread-3][createLocalDateTime] - <--
+[20:02:34][DEBUG][Thread-3][<init>] - <--
+[20:02:34][INFO][Thread-3][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[20:02:34][DEBUG][Thread-3][<init>] - -->
+[20:02:34][DEBUG][Thread-3][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[20:02:36][ERROR][Thread-3][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:136)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[20:02:36][DEBUG][Thread-3][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:02:36][DEBUG][Thread-3][run] - recived start byte 1 hex: 5C
+[20:02:36][DEBUG][Thread-3][run] - recived start byte 2 hex: 72
+[20:02:36][DEBUG][Thread-3][run] - recived duzina poruke hex: 37
+[20:02:36][DEBUG][Thread-3][run] - duzina_poruke_int = 55
+[20:02:36][INFO][Thread-3][run] - poruja: 5C723700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[20:02:36][DEBUG][Thread-3][<init>] - --> message = {vehicle_id=0, id_status=0, valid_position=A, day=0, month=0, year=2000, hour=0, minute=0, second=0, timestamp=943920000000, lat_sirovi=0, lat=0.0, northing=N, lon_sirovi=0, lon=0.0, easting=E, speed=0, direction=0, cell_info=}
+[20:02:36][DEBUG][Thread-3][<init>] - --> geneco_status_id = 0
+[20:02:36][DEBUG][Thread-3][<init>] - --> _tempSpeed = 0.0 u knots per hour
+[20:02:36][DEBUG][Thread-3][<init>] - --> _serialNumber = 0
+[20:02:36][DEBUG][Thread-3][<init>] - --> _tempSpeed konvertovana u KMH = 0.0
+[20:02:36][DEBUG][Thread-3][createLocalDateTime] - --> _gpsYear = 2000, _gpsMonth = 0, _gpsDay = 0, _gpsHour = 0, _gpsMinute = 0, _gpsSecond = 0
+[20:02:36][INFO][Thread-3][run] - <-- thread finished, all resources closed
+[20:03:53][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=58649,localport=40002]
+[20:03:53][INFO][Thread-1][processRequest] - Pool size is 0
+[20:03:53][DEBUG][Thread-1][processRequest] - <--
+[20:03:53][INFO][Thread-4][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=58649,localport=40002]
+[20:03:53][INFO][Thread-4][run] - ------------------------------------request start--------------------------------------------------
+[20:03:53][INFO][Thread-4][run] - request from address: 127.0.0.1 port: 58649
+[20:03:53][DEBUG][Thread-4][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:03:53][DEBUG][Thread-4][run] - recived start byte 1 hex: 5C
+[20:03:53][DEBUG][Thread-4][run] - recived start byte 2 hex: 72
+[20:03:53][DEBUG][Thread-4][run] - recived duzina poruke hex: 37
+[20:03:53][DEBUG][Thread-4][run] - duzina_poruke_int = 55
+[20:03:53][INFO][Thread-4][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[20:03:53][DEBUG][Thread-4][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[20:03:53][DEBUG][Thread-4][<init>] - --> geneco_status_id = 0
+[20:03:53][DEBUG][Thread-4][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[20:03:53][DEBUG][Thread-4][<init>] - --> _serialNumber = 11961
+[20:03:53][DEBUG][Thread-4][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[20:03:53][DEBUG][Thread-4][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[20:03:53][DEBUG][Thread-4][createLocalDateTime] - <--
+[20:03:53][DEBUG][Thread-4][<init>] - <--
+[20:03:53][INFO][Thread-4][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[20:03:53][DEBUG][Thread-4][<init>] - -->
+[20:03:53][DEBUG][Thread-4][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[20:03:56][ERROR][Thread-4][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:136)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[20:03:56][DEBUG][Thread-4][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:03:56][DEBUG][Thread-4][run] - recived start byte 1 hex: 5C
+[20:03:56][DEBUG][Thread-4][run] - recived start byte 2 hex: 72
+[20:03:56][DEBUG][Thread-4][run] - recived duzina poruke hex: 37
+[20:03:56][DEBUG][Thread-4][run] - duzina_poruke_int = 55
+[20:03:56][INFO][Thread-4][run] - poruja: 5C723700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[20:03:56][DEBUG][Thread-4][<init>] - --> message = {vehicle_id=0, id_status=0, valid_position=A, day=0, month=0, year=2000, hour=0, minute=0, second=0, timestamp=943920000000, lat_sirovi=0, lat=0.0, northing=N, lon_sirovi=0, lon=0.0, easting=E, speed=0, direction=0, cell_info=}
+[20:03:56][DEBUG][Thread-4][<init>] - --> geneco_status_id = 0
+[20:03:56][DEBUG][Thread-4][<init>] - --> _tempSpeed = 0.0 u knots per hour
+[20:03:56][DEBUG][Thread-4][<init>] - --> _serialNumber = 0
+[20:03:56][DEBUG][Thread-4][<init>] - --> _tempSpeed konvertovana u KMH = 0.0
+[20:03:56][DEBUG][Thread-4][createLocalDateTime] - --> _gpsYear = 2000, _gpsMonth = 0, _gpsDay = 0, _gpsHour = 0, _gpsMinute = 0, _gpsSecond = 0
+[20:03:56][INFO][Thread-4][run] - <-- thread finished, all resources closed
+[20:04:26][DEBUG][Thread-1][processRequest] - --> socket = Socket[addr=/127.0.0.1,port=58661,localport=40002]
+[20:04:26][INFO][Thread-1][processRequest] - Pool size is 0
+[20:04:26][DEBUG][Thread-1][processRequest] - <--
+[20:04:26][INFO][Thread-5][run] - --> thread started for socket = Socket[addr=/127.0.0.1,port=58661,localport=40002]
+[20:04:26][INFO][Thread-5][run] - ------------------------------------request start--------------------------------------------------
+[20:04:26][INFO][Thread-5][run] - request from address: 127.0.0.1 port: 58661
+[20:04:26][DEBUG][Thread-5][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:04:26][DEBUG][Thread-5][run] - recived start byte 1 hex: 5C
+[20:04:26][DEBUG][Thread-5][run] - recived start byte 2 hex: 72
+[20:04:26][DEBUG][Thread-5][run] - recived duzina poruke hex: 37
+[20:04:26][DEBUG][Thread-5][run] - duzina_poruke_int = 55
+[20:04:26][INFO][Thread-5][run] - poruja: 5C72375600002EB900001702090F00050A76158C04BC18F0003600310010FFFF00012C000000000000000B51532B060B51532B640000AD
+[20:04:26][DEBUG][Thread-5][<init>] - --> message = {vehicle_id=11961, id_status=0, valid_position=A, day=9, month=2, year=2023, hour=15, minute=0, second=5, timestamp=1675954805000, lat_sirovi=2678, lat=44.64252666666667, northing=N, lon_sirovi=1212, lon=20.21064, easting=E, speed=54, direction=49, cell_info=, input=1111111111111111, main_power=300, backup_power=0, rpm=0, gas_level=0, output=00000000, event_data=189879083 100.0}
+[20:04:26][DEBUG][Thread-5][<init>] - --> geneco_status_id = 0
+[20:04:26][DEBUG][Thread-5][<init>] - --> _tempSpeed = 54.0 u knots per hour
+[20:04:26][DEBUG][Thread-5][<init>] - --> _serialNumber = 11961
+[20:04:26][DEBUG][Thread-5][<init>] - --> _tempSpeed konvertovana u KMH = 100.00800000000001
+[20:04:26][DEBUG][Thread-5][createLocalDateTime] - --> _gpsYear = 2023, _gpsMonth = 2, _gpsDay = 9, _gpsHour = 15, _gpsMinute = 0, _gpsSecond = 5
+[20:04:26][DEBUG][Thread-5][createLocalDateTime] - <--
+[20:04:26][DEBUG][Thread-5][<init>] - <--
+[20:04:26][INFO][Thread-5][run] - PArsed Message, gps_message = *Uredjaj: 11961, _serialNumber: null, kartica: null, Alarm: null,_tempSpeed = 100.00800000000001, Status: null, Napon: 30.0, Fix: A, Latituda: 44.64252666666667 null, Longituda: 20.21064 null, _gpsLatNonFormated: 4438.5516, _gpsLongNonFormated: 2012.6384, Brzina: 0.0, Smer: 49.0, Tip poruke: GENECO, Pozicija: 0 km od , , , , Vreme: 2023-02-09 16:00:05
+[20:04:26][DEBUG][Thread-5][<init>] - -->
+[20:04:26][DEBUG][Thread-5][<init>] - --> host = null, database = pakistan_test, username = postgres, password = postgres
+[20:04:29][ERROR][Thread-5][run] - Unable to insert gps data from vehicle in database, details: Couldn't connect to database.
+java.lang.Exception: Couldn't connect to database.
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:125)
+	at yu.co.certus.pos.lanus.concurrent.ProcessingTaskGeneco.run(ProcessingTaskGeneco.java:136)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(PooledExecutor.java:743)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:65)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:116)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:369)
+	at org.postgresql.Driver.connect(Driver.java:245)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at yu.co.certus.pos.geneco.data.PostGreAgent.<init>(PostGreAgent.java:99)
+	... 3 more
+Caused by: java.net.UnknownHostException: null
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:189)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:58)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:77)
+	... 12 more
+[20:04:29][DEBUG][Thread-5][run] - U beskonacnoj sam petlji, reading from socket: 
+[20:04:29][DEBUG][Thread-5][run] - recived start byte 1 hex: 5C
+[20:04:29][DEBUG][Thread-5][run] - recived start byte 2 hex: 72
+[20:04:29][DEBUG][Thread-5][run] - recived duzina poruke hex: 37
+[20:04:29][DEBUG][Thread-5][run] - duzina_poruke_int = 55
+[20:04:29][INFO][Thread-5][run] - poruja: 5C723700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[20:04:29][DEBUG][Thread-5][<init>] - --> message = {vehicle_id=0, id_status=0, valid_position=A, day=0, month=0, year=2000, hour=0, minute=0, second=0, timestamp=943920000000, lat_sirovi=0, lat=0.0, northing=N, lon_sirovi=0, lon=0.0, easting=E, speed=0, direction=0, cell_info=}
+[20:04:29][DEBUG][Thread-5][<init>] - --> geneco_status_id = 0
+[20:04:29][DEBUG][Thread-5][<init>] - --> _tempSpeed = 0.0 u knots per hour
+[20:04:29][DEBUG][Thread-5][<init>] - --> _serialNumber = 0
+[20:04:29][DEBUG][Thread-5][<init>] - --> _tempSpeed konvertovana u KMH = 0.0
+[20:04:29][DEBUG][Thread-5][createLocalDateTime] - --> _gpsYear = 2000, _gpsMonth = 0, _gpsDay = 0, _gpsHour = 0, _gpsMinute = 0, _gpsSecond = 0
+[20:04:29][INFO][Thread-5][run] - <-- thread finished, all resources closed

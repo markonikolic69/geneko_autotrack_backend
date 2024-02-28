@@ -1,0 +1,11 @@
+[10:44:41][INFO][main][main] - Program started
+[10:44:41][DEBUG][main][<init>] - -->Service() - starting service on localhost
+[10:44:41][DEBUG][main][initialize] - -->initialize() - initializing resources for Service: properties, socket, timer, and seting number of threads
+[10:44:41][DEBUG][main][initializeProperties] - -->initializeProperties() - initializing app. properties from the property file
+[10:44:41][DEBUG][main][initializeProperties] - <--initializeProperties()
+[10:44:41][DEBUG][main][initializeSocket] - -->initializeSocket() - initializing socket for the port 40002, 127.0.0.1
+[10:44:41][DEBUG][main][initializeSocket] - <--initializeSocket()
+[10:44:41][DEBUG][main][initialize] - <--initialize()
+[10:44:41][DEBUG][main][<init>] - <--Service()
+[10:44:41][DEBUG][Thread-1][run] - -->
+[10:44:41][DEBUG][Thread-1][listen] - -->listen() - accepting terminal requests
