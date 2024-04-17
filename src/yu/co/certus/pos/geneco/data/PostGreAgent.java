@@ -1154,68 +1154,68 @@ public class PostGreAgent {
         String novi_status = "";
 //////////////////////////////////odredjivanje statusa ////////////////////////////////////////////
         
-        if(unit_id.equalsIgnoreCase("15804") || unit_id.equalsIgnoreCase("15562") ||
-                unit_id.equalsIgnoreCase("16050") || unit_id.equalsIgnoreCase("1248") ||
-                unit_id.equalsIgnoreCase("15602") ) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("#### unit_id = "+unit_id+" odredjivanje statusa BEZZ input polja, uredjaji sa bug-om. Oslanjamo se najvise na brzinu "  );
-                logger.debug("#### unit_id = "+unit_id+" BEZZ lastPositionPorukaStatus="+lastPositionPorukaStatus+", poruka.getSpeed()="+poruka.getSpeed()+
-                        " , geneko_status_int="+geneko_status_int  );
-            } 
-            if(lastPositionPorukaStatus.equals("Parkiran")){
-                if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_RESPONSE_CONTACT_KEY_ON
-                /*poruka.getSpeed() > 1*/ /*#### korekcija BUG-a 27, ostaje Parkiran iako je brzina veca od 1 */){
-                    //ide u upaljen
-                    novi_status = "Upaljen";
-                }else{
-                    if(poruka.getSpeed() > 0){
-                        novi_status = "Voznja";
-                    }else{
-                    //ostaje parkiran
-                        novi_status = "Parkiran";
-                    }
-                }
-            }else{
-                if(lastPositionPorukaStatus.equals("Upaljen")){
-                    if(poruka.getSpeed() > 0){
-                        //ide u upaljen
-                        novi_status = "Voznja";
-                    }else{
-                        //ostaje parkiran
-                        novi_status = "Parkiran";
-                    }
-                }else{
-                    if(lastPositionPorukaStatus.equals("Voznja")){
-                        if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_RESPONSE_CONTACT_KEY_OFF){
-                            novi_status = "Parkiran";
-                        }else{
-                            if(poruka.getSpeed() > 0){
-                                //ostaje voznja
-                                novi_status = "Voznja";
-                            }else{
-                                //ide u parkiran
-                                novi_status = "Parkiran";
-                            }
-                        }
-                    }else{
-                        if(lastPositionPorukaStatus.equals("Alarm sonda")){
-                            //ide u novi status
-                            if(is_uredjaj_upaljen){
-                                novi_status = "Voznja";
-                            }else{
-                                novi_status = "Parkiran";
-                            }
-                        }else{
-                            novi_status = lastPositionPorukaStatus;
-                        }
-                    }
-                }
-            }
-            if (logger.isDebugEnabled()) {
-                logger.debug("#### unit_id = "+unit_id+" BEZZ novi_status="+novi_status );
-            } 
-            
-        }else{
+//        if(unit_id.equalsIgnoreCase("15804") || unit_id.equalsIgnoreCase("15562") ||
+//                unit_id.equalsIgnoreCase("16050") || unit_id.equalsIgnoreCase("1248") ||
+//                unit_id.equalsIgnoreCase("15602") ) {
+//            if (logger.isDebugEnabled()) {
+//                logger.debug("#### unit_id = "+unit_id+" odredjivanje statusa BEZZ input polja, uredjaji sa bug-om. Oslanjamo se najvise na brzinu "  );
+//                logger.debug("#### unit_id = "+unit_id+" BEZZ lastPositionPorukaStatus="+lastPositionPorukaStatus+", poruka.getSpeed()="+poruka.getSpeed()+
+//                        " , geneko_status_int="+geneko_status_int  );
+//            } 
+//            if(lastPositionPorukaStatus.equals("Parkiran")){
+//                if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_RESPONSE_CONTACT_KEY_ON
+//                /*poruka.getSpeed() > 1*/ /*#### korekcija BUG-a 27, ostaje Parkiran iako je brzina veca od 1 */){
+//                    //ide u upaljen
+//                    novi_status = "Upaljen";
+//                }else{
+//                    if(poruka.getSpeed() > 0){
+//                        novi_status = "Voznja";
+//                    }else{
+//                    //ostaje parkiran
+//                        novi_status = "Parkiran";
+//                    }
+//                }
+//            }else{
+//                if(lastPositionPorukaStatus.equals("Upaljen")){
+//                    if(poruka.getSpeed() > 0){
+//                        //ide u upaljen
+//                        novi_status = "Voznja";
+//                    }else{
+//                        //ostaje parkiran
+//                        novi_status = "Parkiran";
+//                    }
+//                }else{
+//                    if(lastPositionPorukaStatus.equals("Voznja")){
+//                        if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_RESPONSE_CONTACT_KEY_OFF){
+//                            novi_status = "Parkiran";
+//                        }else{
+//                            if(poruka.getSpeed() > 0){
+//                                //ostaje voznja
+//                                novi_status = "Voznja";
+//                            }else{
+//                                //ide u parkiran
+//                                novi_status = "Parkiran";
+//                            }
+//                        }
+//                    }else{
+//                        if(lastPositionPorukaStatus.equals("Alarm sonda")){
+//                            //ide u novi status
+//                            if(is_uredjaj_upaljen){
+//                                novi_status = "Voznja";
+//                            }else{
+//                                novi_status = "Parkiran";
+//                            }
+//                        }else{
+//                            novi_status = lastPositionPorukaStatus;
+//                        }
+//                    }
+//                }
+//            }
+//            if (logger.isDebugEnabled()) {
+//                logger.debug("#### unit_id = "+unit_id+" BEZZ novi_status="+novi_status );
+//            } 
+//            
+//        }else{
             if (logger.isDebugEnabled()) {
                 logger.debug("#### odredjivanje statusa SA input poljem "  );
             }    
@@ -1251,7 +1251,7 @@ public class PostGreAgent {
                             }
                         }
                     }else{
-                        if(lastPositionPorukaStatus.equals("Alarm sonda")){
+                        if(lastPositionPorukaStatus.equals("Alarm sonda") || lastPositionPorukaStatus.equals("SLEEP")){
                             //ide u novi status
                             if(is_uredjaj_upaljen){
                                 novi_status = "Voznja";
@@ -1264,7 +1264,7 @@ public class PostGreAgent {
                     }
                 }
             }
-        }
+ //       }
         
         //ispravka bug-a
         if(novi_status.equals("Upaljen") && lastPositionPorukaStatus.equals("Upaljen")){
@@ -1283,8 +1283,8 @@ public class PostGreAgent {
         
         if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_WDT_START){
             //izmena iz TStatus u SLEEP - ticket 115
-            novi_status = "SLEEP";
-            //novi_status = "TStatus";
+            //novi_status = "SLEEP";
+            novi_status = "TStatus";
             //ovde uvodimo novinu. Posto znamo da je u ovom statusu vozilo parkirano, ako 
             //prethodni status nije Parkiran, onda novi setujemo na Parkiran. U suprotnom, ostaje TStatus
             if(!lastPositionPorukaStatus.equalsIgnoreCase("Parkiran")){
@@ -1589,6 +1589,13 @@ public class PostGreAgent {
         }
         
         poruka.setMessageType(tip_poruke);
+        if(novi_status.equals("SLEEP")){
+            if(is_uredjaj_upaljen){
+                novi_status = "Voznja";
+            }else{
+                novi_status = "Parkiran";
+            }
+        }
         poruka.setStatus(novi_status);
         
         //staviti poslednju vrednost sa sondi na poruku vozilo upaljeno i vozilo ugaseno
@@ -1616,6 +1623,7 @@ public class PostGreAgent {
             logger.debug("######poruka pred upisivanjem = " + poruka);
             logger.info("######poruka pred upisivanjem, TIP PORUKE = " + tip_poruke + ", status = " + novi_status);
         }
+        
 
         //ako poruka nije error, ako joj je vreme vece od poslednje poruke i
         //ako joj vreme nije vece od godinu dana od starta servera upisujemo u last position  
@@ -1629,7 +1637,7 @@ public class PostGreAgent {
              //status upaljen with lat/long 0 is not error and is replaced with last position
              if(poruka.getGPSLat()!=0 && poruka.getGPSLong()!=0){
                  if(novi_status.equalsIgnoreCase("TStatus") || tip_poruke.equalsIgnoreCase("ERROR") || 
-                         tip_poruke.equalsIgnoreCase("ERROR_GSM_GENECO") || tip_poruke.equalsIgnoreCase("SLEEP")){
+                         tip_poruke.equalsIgnoreCase("ERROR_GSM_GENECO") /*|| tip_poruke.equalsIgnoreCase("SLEEP")*/){
                      
                  }else{
                      saveLastPosition(poruka, unit_id, is_with_sonda_data);
