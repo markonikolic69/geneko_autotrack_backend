@@ -1283,8 +1283,8 @@ public class PostGreAgent {
         
         if(geneko_status_int == ProtocolDecoderOldGeneko.STATUS_WDT_START){
             //izmena iz TStatus u SLEEP - ticket 115
-            //novi_status = "SLEEP";
-            novi_status = "TStatus";
+            novi_status = "SLEEP";
+            //novi_status = "TStatus";
             //ovde uvodimo novinu. Posto znamo da je u ovom statusu vozilo parkirano, ako 
             //prethodni status nije Parkiran, onda novi setujemo na Parkiran. U suprotnom, ostaje TStatus
             if(!lastPositionPorukaStatus.equalsIgnoreCase("Parkiran")){
@@ -1589,13 +1589,13 @@ public class PostGreAgent {
         }
         
         poruka.setMessageType(tip_poruke);
-        if(novi_status.equals("SLEEP")){
-            if(is_uredjaj_upaljen){
-                novi_status = "Voznja";
-            }else{
-                novi_status = "Parkiran";
-            }
-        }
+//        if(novi_status.equals("SLEEP")){
+//            if(is_uredjaj_upaljen){
+//                novi_status = "Voznja";
+//            }else{
+//                novi_status = "Parkiran";
+//            }
+//        }
         poruka.setStatus(novi_status);
         
         //staviti poslednju vrednost sa sondi na poruku vozilo upaljeno i vozilo ugaseno
@@ -1637,7 +1637,7 @@ public class PostGreAgent {
              //status upaljen with lat/long 0 is not error and is replaced with last position
              if(poruka.getGPSLat()!=0 && poruka.getGPSLong()!=0){
                  if(novi_status.equalsIgnoreCase("TStatus") || tip_poruke.equalsIgnoreCase("ERROR") || 
-                         tip_poruke.equalsIgnoreCase("ERROR_GSM_GENECO") /*|| tip_poruke.equalsIgnoreCase("SLEEP")*/){
+                         tip_poruke.equalsIgnoreCase("ERROR_GSM_GENECO") || novi_status.equalsIgnoreCase("SLEEP")){
                      
                  }else{
                      saveLastPosition(poruka, unit_id, is_with_sonda_data);
